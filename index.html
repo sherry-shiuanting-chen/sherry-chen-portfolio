@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shiuan-Ting Sherry Chen — Commercial &amp; Product Strategy, Healthcare</title>
+<meta name="description" content="Commercial &amp; product strategy manager bridging clinical frontline healthcare and medtech growth across the UK, Taiwan, and Spain.">
+<style>
+  :root{
+    --bg:#F5F9FC;
+    --card:#FFFFFF;
+    --ink:#14283D;
+    --ink-soft:#3C5468;
+    --blue-deep:#205C82;
+    --blue-mid:#4E94B8;
+    --blue-pale:#C9E2ED;
+    --line:#DCE8EE;
+
+    --font-display: 'Iowan Old Style','Palatino Linotype',Georgia,'Times New Roman',serif;
+    --font-body: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+    --font-mono: ui-monospace,'SF Mono','Cascadia Code','Roboto Mono',Menlo,Consolas,monospace;
+
+    --max: 1080px;
+    --gap: clamp(3.5rem, 8vw, 7rem);
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink-soft);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{ max-width:var(--max); margin:0 auto; padding-inline:clamp(1.25rem,4vw,2.5rem); }
+
+  a{ color:var(--blue-deep); }
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    color:var(--ink);
+    margin:0;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--blue-deep);
+    display:block;
+    margin-bottom:0.9rem;
+  }
+
+  .skip-link{
+    position:absolute; left:-9999px; top:0;
+    background:var(--blue-deep); color:#fff; padding:0.7rem 1.2rem;
+    z-index:200; border-radius:0 0 6px 0;
+  }
+  .skip-link:focus{ left:0; }
+
+  a:focus-visible, button:focus-visible, .navlink:focus-visible{
+    outline:2px solid var(--blue-deep);
+    outline-offset:3px;
+    border-radius:3px;
+  }
+
+  /* ---------- Nav ---------- */
+  header.site{
+    position:sticky; top:0; z-index:100;
+    background:rgba(245,249,252,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  header.site .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-block:1rem;
+  }
+  .brand{
+    font-family:var(--font-display);
+    font-weight:600;
+    color:var(--ink);
+    text-decoration:none;
+    font-size:1.05rem;
+    letter-spacing:0.01em;
+  }
+  nav.primary{ display:flex; align-items:center; gap:2rem; }
+  nav.primary ul{
+    list-style:none; display:flex; gap:1.75rem; margin:0; padding:0;
+  }
+  .navlink{
+    text-decoration:none; color:var(--ink-soft);
+    font-size:0.92rem;
+    padding-bottom:2px;
+    border-bottom:1px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .navlink:hover{ color:var(--blue-deep); border-color:var(--blue-mid); }
+
+  .menu-toggle{
+    display:none;
+    background:none; border:1px solid var(--line); border-radius:6px;
+    width:40px; height:36px; cursor:pointer;
+    align-items:center; justify-content:center;
+  }
+  .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after{
+    content:''; display:block; width:18px; height:2px; background:var(--ink);
+    position:relative; transition:transform .2s ease, opacity .2s ease;
+  }
+  .menu-toggle span::before{ position:absolute; top:-6px; }
+  .menu-toggle span::after{ position:absolute; top:6px; }
+
+  @media (max-width:720px){
+    .menu-toggle{ display:inline-flex; }
+    nav.primary{
+      position:fixed; inset:60px 0 auto 0;
+      background:var(--card);
+      border-bottom:1px solid var(--line);
+      flex-direction:column; align-items:stretch;
+      padding:1rem 1.25rem 1.5rem;
+      transform:translateY(-8px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .18s ease, transform .18s ease;
+    }
+    nav.primary.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
+    nav.primary ul{ flex-direction:column; gap:0.25rem; }
+    .navlink{ display:block; padding:0.6rem 0; border-bottom:1px solid var(--line); }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding-block: clamp(4rem,10vw,7rem) clamp(3.5rem,8vw,5rem);
+  }
+  .hero-curve{
+    position:absolute;
+    left:0; right:0; bottom:-4%;
+    width:100%; height:auto;
+    opacity:0.55;
+    pointer-events:none;
+  }
+  .hero-curve path{
+    fill:none;
+    stroke:var(--blue-mid);
+    stroke-width:2.5;
+    stroke-linecap:round;
+    stroke-dasharray:900;
+    stroke-dashoffset:900;
+    animation:draw 2.2s ease-out 0.2s forwards;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-curve path{ animation:none; stroke-dashoffset:0; }
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  .hero-inner{ position:relative; z-index:1; max-width:44rem; }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4rem);
+    line-height:1.08;
+    margin-bottom:1rem;
+  }
+  .hero .role{
+    font-size:clamp(1.05rem,2vw,1.25rem);
+    color:var(--blue-deep);
+    font-family:var(--font-body);
+    font-weight:600;
+    margin-bottom:1.4rem;
+  }
+  .hero .lede{
+    font-size:1.08rem;
+    max-width:38rem;
+    margin-bottom:2.2rem;
+  }
+  .hero-cta{ display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:var(--blue-deep); color:#fff;
+    text-decoration:none;
+    padding:0.75rem 1.4rem;
+    border-radius:6px;
+    font-size:0.95rem; font-weight:600;
+    border:1px solid var(--blue-deep);
+    transition:background .15s ease, transform .15s ease;
+  }
+  .btn:hover{ background:#184a6a; }
+  .btn:active{ transform:translateY(1px); }
+  .btn.ghost{
+    background:transparent; color:var(--blue-deep);
+  }
+  .btn.ghost:hover{ background:var(--blue-pale); }
+  .hero-meta{
+    font-family:var(--font-mono);
+    font-size:0.82rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- Section shell ---------- */
+  section{ padding-block:var(--gap); }
+  section + section{ border-top:1px solid var(--line); }
+  .section-head{ max-width:38rem; margin-bottom:2.75rem; }
+  .section-head h2{ font-size:clamp(1.6rem,3vw,2.15rem); }
+
+  .reveal{
+    opacity:0; transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap:clamp(2rem,5vw,4rem);
+    align-items:start;
+  }
+  .about-grid .lead{ font-size:1.08rem; }
+  .vitals{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .vital{
+    background:var(--card);
+    padding:1.25rem 1.4rem;
+  }
+  .vital .num{
+    font-family:var(--font-mono);
+    font-size:1.5rem;
+    color:var(--blue-deep);
+    display:block;
+    margin-bottom:0.3rem;
+  }
+  .vital .label{
+    font-size:0.82rem;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:820px){
+    .about-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Experience ---------- */
+  .timeline{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2.6rem; }
+  .job-head{
+    display:flex; flex-wrap:wrap; align-items:baseline; gap:0.5rem 1rem;
+    margin-bottom:0.9rem;
+  }
+  .job-head h3{ font-size:1.2rem; }
+  .job-org{ color:var(--blue-deep); font-weight:600; font-family:var(--font-body); }
+  .job-dates{
+    font-family:var(--font-mono); font-size:0.8rem; color:var(--ink-soft);
+    margin-left:auto;
+    white-space:nowrap;
+  }
+  .job-bullets{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.65rem; }
+  .job-bullets li{
+    position:relative; padding-left:1.4rem;
+  }
+  .job-bullets li::before{
+    content:"";
+    position:absolute; left:0; top:0.45em;
+    width:10px; height:10px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'><path d='M1 8 L5 2 L9 8' fill='none' stroke='%234E94B8' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat:no-repeat;
+    background-size:contain;
+  }
+
+  .education{
+    margin-top:3rem;
+    padding-top:2.4rem;
+    border-top:1px dashed var(--line);
+  }
+  .education h3.subhead{
+    font-size:1rem;
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--blue-deep);
+    margin-bottom:1.4rem;
+  }
+  .edu-item{ margin-bottom:1.1rem; }
+  .edu-item .job-head h3{ font-size:1.02rem; }
+  .edu-item p{ margin:0.3rem 0 0; font-size:0.92rem; }
+
+  /* ---------- Projects ---------- */
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1.5rem;
+  }
+  @media (max-width:900px){ .cards{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:620px){ .cards{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:1.6rem;
+    display:flex; flex-direction:column; gap:0.9rem;
+    transition:border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover{
+    border-color:var(--blue-mid);
+    transform:translateY(-3px);
+    box-shadow:0 10px 24px -18px rgba(20,40,61,0.35);
+  }
+  .card .card-org{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .card h3{ font-size:1.08rem; }
+  .card p{ font-size:0.92rem; margin:0; flex-grow:1; }
+  .card .result{
+    font-family:var(--font-mono);
+    font-size:0.82rem;
+    color:var(--blue-deep);
+    background:var(--blue-pale);
+    border-radius:6px;
+    padding:0.5rem 0.7rem;
+    display:inline-block;
+    align-self:flex-start;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-box{
+    background:var(--ink);
+    color:#DCE8EE;
+    border-radius:14px;
+    padding:clamp(2rem,6vw,3.5rem);
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:2rem;
+  }
+  .contact-box h2{ color:#fff; font-size:clamp(1.6rem,3vw,2.15rem); max-width:22rem; }
+  .contact-box .lede{ max-width:26rem; color:#B9CCDA; }
+  .contact-links{ display:flex; flex-direction:column; gap:0.8rem; font-family:var(--font-mono); font-size:0.92rem; }
+  .contact-links a{ color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.35); }
+  .contact-links a:hover{ border-color:#fff; }
+  .contact-links .btn{ margin-top:0.3rem; align-self:flex-start; }
+
+  footer.site{
+    text-align:center;
+    padding:2.5rem 1rem;
+    font-size:0.82rem;
+    color:var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">S. Chen</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+      <span></span>
+    </button>
+    <nav class="primary" id="primaryNav">
+      <ul>
+        <li><a class="navlink" href="#about">About</a></li>
+        <li><a class="navlink" href="#experience">Experience</a></li>
+        <li><a class="navlink" href="#projects">Projects</a></li>
+        <li><a class="navlink" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <svg class="hero-curve" viewBox="0 0 1000 220" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 190 C 150 190, 220 170, 320 150 C 430 128, 480 90, 600 70 C 720 50, 800 60, 880 30 C 930 12, 960 8, 1000 4" />
+    </svg>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Commercial &amp; Product Strategy · Healthcare Innovation</span>
+      <h1>Shiuan-Ting&nbsp;<em style="font-style:italic;">"Sherry"</em>&nbsp;Chen</h1>
+      <p class="role">From the ward to the boardroom, in medtech.</p>
+      <p class="lede">I turn clinical insight into commercial strategy — bridging frontline healthcare experience and product growth for medical device and surgical training companies across the UK, Taiwan, and Spain.</p>
+      <div class="hero-cta">
+        <a class="btn" href="mailto:K25079507@kcl.ac.uk">Email me</a>
+        <a class="btn ghost" href="#experience">See experience</a>
+      </div>
+      <p class="hero-meta" style="margin-top:2rem;">London, UK</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid reveal">
+        <div>
+          <span class="eyebrow">About</span>
+          <h2 style="margin-bottom:1.2rem;">From the ward to the boardroom</h2>
+          <p class="lead">I started as a respiratory therapist, leading a hospital innovation initiative during COVID-19 supply shortages that earned Taiwan's 15th National Innovation Award. That frontline experience now shapes how I build commercial strategy for medical device and surgical training companies — reading adoption data, listening to clinicians, and translating both into decisions the business can act on. I'm currently reading for an MSc in International Marketing at King's College London.</p>
+        </div>
+        <div class="vitals">
+          <div class="vital"><span class="num">3+</span><span class="label">years in medtech commercial strategy</span></div>
+          <div class="vital"><span class="num">UK · TW · ES</span><span class="label">markets worked across</span></div>
+          <div class="vital"><span class="num">82%</span><span class="label">peak clinical adoption rate driven</span></div>
+          <div class="vital"><span class="num">EN · 中文</span><span class="label">working languages</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Experience</span>
+        <h2>Where the strategy got tested</h2>
+      </div>
+
+      <ul class="timeline reveal">
+        <li>
+          <div class="job-head">
+            <h3>Commercial &amp; Product Strategy Manager</h3>
+            <span class="job-org">Jade Snow Medical Ltd, London</span>
+            <span class="job-dates">2023 – Present</span>
+          </div>
+          <ul class="job-bullets">
+            <li>Analysed early-stage commercialisation strategy for neurosurgical training products across the UK and Spain, supporting market entry and product-market fit decisions.</li>
+            <li>Delivered 5+ clinician workshops and coordinated production of 200+ surgical training models to inform commercial positioning and adoption strategy.</li>
+            <li>Evaluated clinician feedback, usability outcomes, and adoption barriers to identify growth opportunities and commercial risk.</li>
+            <li>Built strategic partnerships with hospitals and academic partners, improving customer experience to 80%+ satisfaction.</li>
+          </ul>
+        </li>
+
+        <li>
+          <div class="job-head">
+            <h3>Commercial Strategy Manager</h3>
+            <span class="job-org">Baxter, Taiwan</span>
+            <span class="job-dates">2023 – 2025</span>
+          </div>
+          <ul class="job-bullets">
+            <li>Acted as key point of contact for investors on business performance, market expansion, and growth across Advanced Surgery product lines.</li>
+            <li>Managed annual marketing plans, budget allocation, and KPI monitoring across the region.</li>
+            <li>Led go-to-market execution and key account strategy across 9 specialities, contributing to APAC No.1 sales ranking in 2024.</li>
+          </ul>
+        </li>
+
+        <li>
+          <div class="job-head">
+            <h3>Respiratory Therapist, Clinical Innovation Lead</h3>
+            <span class="job-org">Chi Mei Medical Centre, Taiwan</span>
+            <span class="job-dates">2019 – 2023</span>
+          </div>
+          <ul class="job-bullets">
+            <li>Led a hospital innovation initiative during COVID-19 supply shortages, from unmet clinical need to scalable solution.</li>
+            <li>Coordinated frontline users, hospital stakeholders, and external collaborators to reach 82% hospital adoption.</li>
+            <li>Received the 15th National Innovation Award for execution and measurable institutional adoption.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="education reveal">
+        <h3 class="subhead">Education</h3>
+        <div class="edu-item">
+          <div class="job-head"><h3>MSc International Marketing, King's Business School</h3><span class="job-dates">2025 – 2026</span></div>
+          <p>King's College London · CIM member; represented King's at GIMUN 2026, United Nations, Geneva.</p>
+        </div>
+        <div class="edu-item">
+          <div class="job-head"><h3>MSc Aerospace &amp; Undersea Medicine</h3><span class="job-dates">2017 – 2019</span></div>
+          <p>National Defence Medical University, Taiwan · GPA A/A+ · presented at Cambridge International Stem Cell Symposium; co-authored two publications.</p>
+        </div>
+        <div class="edu-item">
+          <div class="job-head"><h3>BSc Respiratory Therapy</h3><span class="job-dates">2015 – 2017</span></div>
+          <p>Chang Gung University, Taiwan · GPA 3.92/4.0 · clinical internship, National University Hospital, Singapore.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Projects</span>
+        <h2>Selected work</h2>
+      </div>
+      <div class="cards reveal">
+        <article class="card">
+          <span class="card-org">Jade Snow Medical</span>
+          <h3>Neurosurgical training, UK &amp; Spain</h3>
+          <p>Shaped early commercialisation strategy for neurosurgical training products, running clinician workshops to convert feedback into adoption strategy.</p>
+          <span class="result">200+ models · 80%+ satisfaction</span>
+        </article>
+        <article class="card">
+          <span class="card-org">Baxter, Taiwan</span>
+          <h3>Advanced Surgery go-to-market, APAC</h3>
+          <p>Led go-to-market execution and key account strategy for Advanced Surgery products across 9 specialities.</p>
+          <span class="result">APAC No.1 · 2024</span>
+        </article>
+        <article class="card">
+          <span class="card-org">Chi Mei Medical Centre</span>
+          <h3>COVID-19 clinical innovation</h3>
+          <p>Identified an unmet clinical need during supply shortages and led a hospital-wide initiative from idea to scaled, adopted solution.</p>
+          <span class="result">82% adoption · National Innovation Award</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box reveal">
+        <div>
+          <h2>Let's talk</h2>
+          <p class="lede">Open to product and commercial strategy roles in healthcare and medtech.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:K25079507@kcl.ac.uk">K25079507@kcl.ac.uk</a>
+          <a href="tel:+4407709536322">+44 07709 536322</a>
+          <span>London, UK</span>
+          <a class="btn" href="mailto:K25079507@kcl.ac.uk">Email me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">© 2026 Shiuan-Ting Sherry Chen · London</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('menuToggle');
+  var nav = document.getElementById('primaryNav');
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+</body>
+</html>
